@@ -1,4 +1,4 @@
-package pl.MGalecki10.model;
+package pl.MGalecki10.Library.model;
 
 public class Book {
     // Pola
