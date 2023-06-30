@@ -1,23 +1,18 @@
 package pl.MGalecki10.Library.model;
 
 public class Book extends Publication {
-    // Pola
     private String author;
     private int pages;
     private String isbn;
 
-    // Konstruktory
     public Book(String title, String author, int year, int pages, String publisher,
                 String isbn) {
-        setTitle(title);
-        setPublisher(publisher);
-        setYear(year);
+        super(title, publisher, year);
         this.pages = pages;
         this.author = author;
         this.isbn = isbn;
     }
 
-    // settery i gettery
     public String getIsbn() {
         return isbn;
     }

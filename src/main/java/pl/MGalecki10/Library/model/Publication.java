@@ -1,9 +1,15 @@
 package pl.MGalecki10.Library.model;
 
 public class Publication {
-    private int year;
     private String title;
     private String publisher;
+    private int year;
+
+    public Publication(String title, String publisher, int year) {
+        this.title = title;
+        this.publisher = publisher;
+        this.year = year;
+    }
 
     public int getYear() {
         return year;
