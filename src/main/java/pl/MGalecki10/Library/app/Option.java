@@ -1,6 +1,6 @@
 package pl.MGalecki10.Library.app;
 
-public enum Option {
+enum Option {
     EXIT(0, "Wyjście z programu"),
     ADD_BOOK(1, "Dodanie książki"),
     ADD_MAGAZINE(2,"Dodanie magazynu/gazety"),
