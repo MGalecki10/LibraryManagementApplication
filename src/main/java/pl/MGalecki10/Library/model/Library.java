@@ -18,7 +18,7 @@ public class Library {
         int countBooks = 0;
         for (int i = 0; i < publicationsNumber; i++) {
             if (publications[i] instanceof Book) {
-                publications[i].printInfo();
+                System.out.println(publications[i]);
                 countBooks++;
             }
         }
@@ -40,7 +40,7 @@ public class Library {
         int countMagazines = 0;
         for (int i = 0; i < publicationsNumber; i++) {
             if (publications[i] instanceof Magazine) {
-                publications[i].printInfo();
+                System.out.println(publications[i]);
                 countMagazines++;
             }
         }
