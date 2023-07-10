@@ -48,4 +48,14 @@ public class Library {
             System.out.println("Brak magazynów w bibliotece");
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < publicationsNumber; i++) {
+            builder.append(publications[i]);
+            builder.append("\n");
+        }
+        return builder.toString();
+    }
 }
