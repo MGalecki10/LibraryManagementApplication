@@ -11,16 +11,14 @@ To run the library management application, follow these steps:
 
 ##Usage
 Upon running the application, you will see a list of options:
-![Image](https://tiny.pl/c7xqq)
-
-"""
+'''
 Wybierz opcję:
 0 - Wyjście z programu 
 1 - Dodanie książki 
 2 - Dodanie magazynu/gazety 
 3 - Wyświetlenie dostępnych książek 
 4 - Wyświetlenie dostępnych magazynów/gazet 
-""""
+'''
 
 Enter the number corresponding to the desired option and press Enter.
 •	Option 0: Exit the program.
