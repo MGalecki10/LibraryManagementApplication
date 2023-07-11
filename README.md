@@ -22,11 +22,11 @@ Wybierz opcję:
 ```
 
 Enter the number corresponding to the desired option and press Enter.
-*	Option 0: Exit the program.
-*	Option 1: Add a book to the library.
-*	Option 2: Add a magazine to the library.
-*	Option 3: Print the available books in the library.
-*	Option 4: Print the available magazines in the library.
+*	*Option 0*: Exit the program.
+*	*Option 1*: Add a book to the library.
+*	*Option 2*: Add a magazine to the library.
+*	*Option 3*: Print the available books in the library.
+*	*Option 4*: Print the available magazines in the library.
 
 Follow the on-screen instructions to provide the necessary details for adding books and magazines.
 
@@ -44,9 +44,10 @@ The application consists of the following classes:
 
 ## Future Improvements
 While this application provides basic functionality, there are several areas for improvement:
-*	Input validation: Implement proper validation for user input to handle invalid data gracefully.
-*	Error handling: Add appropriate exception handling and error messages to improve the user experience.
-*	Data persistence: Consider integrating a database or file system to store library data between application runs.
+*	*Input validation*: Implement proper validation for user input to handle invalid data gracefully.
+*	*Error handling*: Add appropriate exception handling and error messages to improve the user experience.
+*	*Data persistence*: Consider integrating a database or file system to store library data between application runs.
+*	*Language selection*: Enhance the application by adding language selection functionality, allowing users to choose their preferred language for the application's interface. Currently, the application is available only in Polish. Adding English language support would make it accessible to a wider audience.
 *	User interface: Enhance the application with a graphical user interface (GUI) for a more user-friendly experience.
 
 ## Acknowledgments
