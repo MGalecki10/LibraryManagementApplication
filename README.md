@@ -48,7 +48,7 @@ While this application provides basic functionality, there are several areas for
 *	*Error handling*: Add appropriate exception handling and error messages to improve the user experience.
 *	*Data persistence*: Consider integrating a database or file system to store library data between application runs.
 *	*Language selection*: Enhance the application by adding language selection functionality, allowing users to choose their preferred language for the application's interface. Currently, the application is available only in Polish. Adding English language support would make it accessible to a wider audience.
-*	User interface: Enhance the application with a graphical user interface (GUI) for a more user-friendly experience.
+*	*User interface*: Enhance the application with a graphical user interface (GUI) for a more user-friendly experience.
 
 ## Acknowledgments
 The library management application was developed as an exercise to practice Java programming concepts.
