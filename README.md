@@ -9,8 +9,9 @@ To run the library management application, follow these steps:
 3. Compile the Java files.
 4. Run the **'LibraryApp'** class.
 
-##Usage
+## Usage
 Upon running the application, you will see a list of options:
+
 '''
 Wybierz opcję:
 0 - Wyjście z programu 
@@ -29,7 +30,7 @@ Enter the number corresponding to the desired option and press Enter.
 
 Follow the on-screen instructions to provide the necessary details for adding books and magazines.
 
-##Code Structure
+## Code Structure
 The application consists of the following classes:
 •	**'LibraryApp'**: The main class that initializes the application and starts the control loop.
 •	**'LibraryControl'**: Handles the control flow of the application, including presenting options, reading user input, and performing corresponding actions.
@@ -41,13 +42,13 @@ The application consists of the following classes:
 •	**'Magazine'**: Represents a magazine publication with attributes such as publication month, day, and language.
 •	**'Publication'**: Represents a generic publication with attributes like title, publisher, and publication year.
 
-##Future Improvements
+## Future Improvements
 While this application provides basic functionality, there are several areas for improvement:
 •	Input validation: Implement proper validation for user input to handle invalid data gracefully.
 •	Error handling: Add appropriate exception handling and error messages to improve the user experience.
 •	Data persistence: Consider integrating a database or file system to store library data between application runs.
 •	User interface: Enhance the application with a graphical user interface (GUI) for a more user-friendly experience.
 
-##Acknowledgments
+## Acknowledgments
 The library management application was developed as an exercise to practice Java programming concepts.
 
