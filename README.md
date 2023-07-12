@@ -53,3 +53,6 @@ While this application provides basic functionality, there are several areas for
 ## Acknowledgments
 The library management application was developed as an exercise to practice Java programming concepts.
 
+## Contributing
+Contributions to this project are welcome. You can fork the repository, make improvements, and submit a pull request.
+
