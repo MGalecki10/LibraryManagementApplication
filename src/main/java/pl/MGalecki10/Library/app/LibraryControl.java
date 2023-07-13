@@ -67,7 +67,7 @@ public class LibraryControl {
         }
     }
 
-    //test
+
     private void addBook() {
         try {
             Book book = dataReader.readAndCreateBook();
