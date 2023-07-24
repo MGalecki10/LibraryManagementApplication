@@ -58,4 +58,8 @@ public class DataReader {
 
         return new Magazine(title, publisher, language, year, month, day);
     }
+
+     public String getString() {
+        return sc.nextLine();
+     }
 }
