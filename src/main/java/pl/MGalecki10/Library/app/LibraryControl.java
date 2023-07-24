@@ -25,6 +25,7 @@ public class LibraryControl {
         fileManager = new FileManagerBuilder(printer, dataReader).build();
         try {
             library = fileManager.importData();
+            printer.printLine("Zaimportowano dane z pliku");
         } catch (DataImportException e) {
             printer.printLine(e.getMessage());
             printer.printLine("Zainicjowano nową bazę.");
