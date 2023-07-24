@@ -1,8 +1,9 @@
 package pl.MGalecki10.Library.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Publication {
+public abstract class Publication implements Serializable {
     private String title;
     private String publisher;
     private int year;
