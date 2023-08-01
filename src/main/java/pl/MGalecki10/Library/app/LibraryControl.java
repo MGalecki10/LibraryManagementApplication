@@ -1,8 +1,12 @@
 package pl.MGalecki10.Library.app;
 
+import pl.MGalecki10.Library.exception.DataExportException;
+import pl.MGalecki10.Library.exception.DataImportException;
 import pl.MGalecki10.Library.exception.NoSuchOptionException;
 import pl.MGalecki10.Library.io.ConsolePrinter;
 import pl.MGalecki10.Library.io.DataReader;
+import pl.MGalecki10.Library.io.file.FileManager;
+import pl.MGalecki10.Library.io.file.FileManagerBuilder;
 import pl.MGalecki10.Library.model.Book;
 import pl.MGalecki10.Library.model.Library;
 import pl.MGalecki10.Library.model.Magazine;
@@ -13,8 +17,21 @@ import java.util.InputMismatchException;
 public class LibraryControl {
     private ConsolePrinter printer = new ConsolePrinter();
     private DataReader dataReader = new DataReader(printer);
+    private FileManager fileManager;
 
-    private Library library = new Library();
+    private Library library;
+
+    public LibraryControl() {
+        fileManager = new FileManagerBuilder(printer, dataReader).build();
+        try {
+            library = fileManager.importData();
+            printer.printLine("Zaimportowano dane z pliku");
+        } catch (DataImportException e) {
+            printer.printLine(e.getMessage());
+            printer.printLine("Zainicjowano nową bazę.");
+            library = new Library();
+        }
+    }
 
     public void controlLoop() {
         Option option;
@@ -101,6 +118,12 @@ public class LibraryControl {
     }
 
     private void exit() {
+        try {
+            fileManager.exportData(library);
+            printer.printLine("Export danych do pliku zakończony powodzeniem");
+        } catch (DataExportException e) {
+            printer.printLine(e.getMessage());
+        }
         printer.printLine("Koniec programu, papa!");
         dataReader.close();
     }
