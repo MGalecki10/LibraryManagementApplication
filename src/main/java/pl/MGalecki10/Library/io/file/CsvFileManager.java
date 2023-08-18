@@ -1,7 +1,6 @@
 package pl.MGalecki10.Library.io.file;
 
 import pl.MGalecki10.Library.exception.DataExportException;
-import pl.MGalecki10.Library.exception.DataImportException;
 import pl.MGalecki10.Library.exception.InvalidDataException;
 import pl.MGalecki10.Library.model.Book;
 import pl.MGalecki10.Library.model.Library;
@@ -25,6 +24,7 @@ public class CsvFileManager implements FileManager {
         } catch (FileNotFoundException e) {
             throw new DataExportException("Brak pliku " + FILE_NAME);
         }
+        return library;
     }
 
     private Publication createObjectFromString(String line) {
@@ -36,6 +36,26 @@ public class CsvFileManager implements FileManager {
             return createMagazine(split);
         }
         throw new InvalidDataException("Nieznany typ publikacji " + type);
+    }
+
+    private Magazine createMagazine(String[] data) {
+        String title = data[1];
+        String publisher = data[2];
+        int year = Integer.valueOf(data[3]);
+        int month = Integer.valueOf(data[4]);
+        int day = Integer.valueOf(data[5]);
+        String language = data[6];
+        return new Magazine(title, publisher, language,year,month,day);
+    }
+
+    private Book createBook(String[] data) {
+        String title = data[1];
+        String publisher = data[2];
+        int year = Integer.valueOf(data[3]);
+        String author = data[4];
+        int pages = Integer.valueOf(data[5]);
+        String isbn = data[6];
+        return new Book(title, author, year, pages, publisher, isbn);
     }
 
     @Override
