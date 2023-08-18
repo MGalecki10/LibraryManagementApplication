@@ -2,6 +2,7 @@ package pl.MGalecki10.Library.app;
 
 import pl.MGalecki10.Library.exception.DataExportException;
 import pl.MGalecki10.Library.exception.DataImportException;
+import pl.MGalecki10.Library.exception.InvalidDataException;
 import pl.MGalecki10.Library.exception.NoSuchOptionException;
 import pl.MGalecki10.Library.io.ConsolePrinter;
 import pl.MGalecki10.Library.io.DataReader;
@@ -26,7 +27,7 @@ public class LibraryControl {
         try {
             library = fileManager.importData();
             printer.printLine("Zaimportowano dane z pliku");
-        } catch (DataImportException e) {
+        } catch (DataImportException | InvalidDataException e) {
             printer.printLine(e.getMessage());
             printer.printLine("Zainicjowano nową bazę.");
             library = new Library();
