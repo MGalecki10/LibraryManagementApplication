@@ -23,7 +23,7 @@ public class Library implements Serializable {
         addPublication(magazine);
     }
 
-    private void addPublication(Publication publication) {
+    public void addPublication(Publication publication) {
         if (publicationsNumber >= MAX_PUBLICATONS) {
             throw new ArrayIndexOutOfBoundsException("Max publications exceeded " + MAX_PUBLICATONS);
         }
