@@ -1,11 +1,12 @@
 package pl.MGalecki10.Library.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class Library implements Serializable {
-    private static final int MAX_PUBLICATONS = 2000;
-    private int publicationsNumber;
-    private Publication[] publications = new Publication[MAX_PUBLICATONS];
+    private static final int INITIAL_CAPACITY = 1;
+    private int publicationsNumber = 0;
+    private Publication[] publications = new Publication[INITIAL_CAPACITY];
 
     public Publication[] getPublications() {
         Publication[] result = new Publication[publicationsNumber];
@@ -15,11 +16,9 @@ public class Library implements Serializable {
         return result;
     }
 
-
-
     public void addPublication(Publication publication) {
-        if (publicationsNumber >= MAX_PUBLICATONS) {
-            throw new ArrayIndexOutOfBoundsException("Max publications exceeded " + MAX_PUBLICATONS);
+        if (publicationsNumber == publications.length) {
+            Arrays.copyOf(publications, publications.length *2);
         }
         publications[publicationsNumber] = publication;
         publicationsNumber++;
