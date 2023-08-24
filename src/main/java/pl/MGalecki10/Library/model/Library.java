@@ -23,6 +23,27 @@ public class Library implements Serializable {
         publications[publicationsNumber] = publication;
         publicationsNumber++;
     }
+
+    public boolean removePublication(Publication pub) {
+        final int notFound = -1;
+        int found = notFound;
+        int i = 0;
+        while (i < publicationsNumber && found == notFound) {
+            if (pub.equals(publications[i])) {
+                found = i;
+            } else {
+                i++;
+            }
+        }
+
+        if (found != notFound) {
+            System.arraycopy(publications, found + 1, publications, found, publications.length - found - 1);
+            publicationsNumber--;
+            publications[publicationsNumber] = null;
+        }
+        return found != notFound;
+
+    }
 }
 
 
