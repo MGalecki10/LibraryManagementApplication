@@ -61,6 +61,12 @@ public class LibraryControl {
                 case DELETE_MAGAZINE:
                     deleteMagazine();
                     break;
+                case ADD_USER:
+                    addUser();
+                    break;
+                case PRINT_USER:
+                    printUsers();
+                    break;
                 case EXIT:
                     exit();
                     break;
@@ -132,7 +138,8 @@ public class LibraryControl {
     }
 
     private void printBooks() {
-        Publication[] publications = getSortedPublications();
+        Publication[] publications = library.getPublications();
+        Arrays.sort(publications, new AlphabeticalComparator());
         printer.printBooks(publications);
     }
 
@@ -148,11 +155,11 @@ public class LibraryControl {
     }
 
     private void printMagazines() {
-        Publication[] publications = getSortedPublications();
+        Publication[] publications = getPublications();
         printer.printMagazines(publications);
     }
 
-    private Publication[] getSortedPublications() {
+    private Publication[] getPublications() {
         Publication[] publications = library.getPublications();
         Arrays.sort(publications, new AlphabeticalComparator());
         return publications;
@@ -176,7 +183,10 @@ public class LibraryControl {
         PRINT_BOOKS(3, "Wyświetlenie dostępnych książek"),
         PRINT_MAGAZINES(4, "WYświetlenie dostępnych magazynów/gazet"),
         DELETE_BOOK(5,"Usuń książkę"),
-        DELETE_MAGAZINE(6,"Usuń magazyn");
+        DELETE_MAGAZINE(6,"Usuń magazyn"),
+        ADD_USER(7,"Dodaj czytelnika"),
+        PRINT_USER(8, "Wyświetl użytkownika");
+
 
 
         private int value;
