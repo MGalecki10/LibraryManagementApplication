@@ -1,7 +1,7 @@
 package pl.MGalecki10.Library.app;
 
 public class LibraryApp {
-    private static final String APP_NAME = "Biblioteka v1.8.2";
+    private static final String APP_NAME = "Biblioteka v2.1";
     public static void main(String[] args) {
         System.out.println(APP_NAME);
         LibraryControl libControl = new LibraryControl();
