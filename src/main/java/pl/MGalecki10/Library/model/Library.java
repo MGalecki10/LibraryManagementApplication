@@ -35,6 +35,7 @@ public class Library implements Serializable {
                     "Uzytkownik ze wzkazanym peselem już istnieje " + user.getPesel()
             );
         }
+        users.put(user.getPesel(),user);
     }
 
     public boolean removePublication(Publication pub) {
