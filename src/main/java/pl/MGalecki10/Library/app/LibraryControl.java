@@ -71,13 +71,66 @@ public class LibraryControl {
         } while (option != Option.EXIT);
     }
 
-    private void addUser() {
+    private Option getOption() {
+        boolean optionOk = false;
+        Option option = null;
+        while (!optionOk) {
+            try {
+                option = Option.createFromInt(dataReader.getInt());
+                optionOk = true;
+            } catch (NoSuchOptionException e) {
+                printer.printLine(e.getMessage() + ", podaj ponownie:");
+            } catch (InputMismatchException ignored) {
+                printer.printLine("Wprowadzono wartość, która nie jest liczbą, podaj ponownie:");
+            }
+        }
+        return option;
+    }
+
+    private void printOptions() {
+        printer.printLine("Wybierz opcję: ");
+        for (Option option : Option.values()) {
+            printer.printLine(option.toString());
+        }
+    }
+
+    private void addBook() {
         try {
-            LibraryUser libraryUser = dataReader.createLibraryUser();
+            Book book = dataReader.readAndCreateBook();
+            library.addPublication(book);
+        } catch (InputMismatchException e) {
+            printer.printLine("Nie udało się utworzyć książki, niepoprawne dane");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            printer.printLine("Osiągnięto limit pojemności, nie można dodać kolejnej książki");
+        }
+    }
+
+    private void addMagazine() {
+        try {
+            Magazine magazine = dataReader.readAndCreateMagazine();
+            library.addPublication(magazine);
+        } catch (InputMismatchException e) {
+            printer.printLine("Nie udało się utworzyć magazynu, niepoprawne dane");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            printer.printLine("Osiągnięto limit pojemności, nie można dodać kolejnego magazynu");
+        }
+    }
+
+    private void addUser() {
+        LibraryUser libraryUser = dataReader.createLibraryUser();
+        try {
             library.addUser(libraryUser);
         } catch (UserAlreadyExistsException e) {
             printer.printLine(e.getMessage());
         }
+    }
+
+    private void printBooks() {
+        printer.printBooks(library.getPublications().values());
+    }
+
+    private void printMagazines() {
+        printer.printMagazines(library.getPublications().values());
     }
 
     private void printUsers() {
@@ -110,59 +163,6 @@ public class LibraryControl {
         }
     }
 
-    private Option getOption() {
-        boolean optionOk = false;
-        Option option = null;
-        while (!optionOk) {
-            try {
-                option = Option.createFromInt(dataReader.getInt());
-                optionOk = true;
-            } catch (NoSuchOptionException e) {
-                printer.printLine(e.getMessage() + ", podaj ponownie:");
-            } catch (InputMismatchException ignored) {
-                printer.printLine("Wprowadzono wartość, która nie jest liczbą, podaj ponownie:");
-            }
-        }
-        return option;
-    }
-
-    private void printOptions() {
-        printer.printLine("Wybierz opcję: ");
-        for (Option option : Option.values()) {
-            printer.printLine(option.toString());
-        }
-    }
-
-
-    private void addBook() {
-        try {
-            Book book = dataReader.readAndCreateBook();
-            library.addPublication(book);
-        } catch (InputMismatchException e) {
-            printer.printLine("Nie udało się utworzyć książki, niepoprawne dane");
-        } catch (ArrayIndexOutOfBoundsException e) {
-            printer.printLine("Osiągnięto limit pojemności, nie można dodać kolejnej książki");
-        }
-    }
-
-    private void printBooks() {
-        printer.printBooks(library.getPublications().values());
-    }
-
-    private void addMagazine() {
-        try {
-            Magazine magazine = dataReader.readAndCreateMagazine();
-            library.addPublication(magazine);
-        } catch (InputMismatchException e) {
-            printer.printLine("Nie udało się utworzyć magazynu, niepoprawne dane");
-        } catch (ArrayIndexOutOfBoundsException e) {
-            printer.printLine("Osiągnięto limit pojemności, nie można dodać kolejnego magazynu");
-        }
-    }
-
-    private void printMagazines() {
-        printer.printMagazines(library.getPublications().values());
-    }
 
     private void exit() {
         try {
@@ -184,7 +184,7 @@ public class LibraryControl {
         DELETE_BOOK(5,"Usuń książkę"),
         DELETE_MAGAZINE(6,"Usuń magazyn"),
         ADD_USER(7,"Dodaj czytelnika"),
-        PRINT_USER(8, "Wyświetl użytkownika");
+        PRINT_USER(8, "Wyświetl czytelnika");
 
 
 
