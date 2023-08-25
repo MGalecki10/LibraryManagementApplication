@@ -40,6 +40,11 @@ public class LibraryUser extends User {
     }
 
     @Override
+    public String toCsv() {
+        return getFirstName() + ";" + getLastName() + ";" + getPesel();
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
