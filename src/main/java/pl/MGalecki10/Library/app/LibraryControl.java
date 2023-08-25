@@ -132,8 +132,7 @@ public class LibraryControl {
     }
 
     private void printBooks() {
-        Publication[] publications = library.getPublications();
-        Arrays.sort(publications, new AlphabeticalComparator());
+        Publication[] publications = getSortedPublications();
         printer.printBooks(publications);
     }
 
@@ -149,9 +148,14 @@ public class LibraryControl {
     }
 
     private void printMagazines() {
+        Publication[] publications = getSortedPublications();
+        printer.printMagazines(publications);
+    }
+
+    private Publication[] getSortedPublications() {
         Publication[] publications = library.getPublications();
         Arrays.sort(publications, new AlphabeticalComparator());
-        printer.printMagazines(publications);
+        return publications;
     }
 
     private void exit() {
