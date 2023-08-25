@@ -14,28 +14,28 @@ public abstract class Publication implements Serializable, Comparable<Publicatio
         this.year = year;
     }
 
-    int getYear() {
-        return year;
-    }
-
-    void setYear(int year) {
-        this.year = year;
-    }
-
-    String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    String getPublisher() {
+    public String getPublisher() {
         return publisher;
     }
 
-    void setPublisher(String publisher) {
+    public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public abstract String toCsv();
