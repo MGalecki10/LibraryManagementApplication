@@ -5,10 +5,11 @@ import pl.MGalecki10.Library.io.ConsolePrinter;
 import pl.MGalecki10.Library.io.DataReader;
 import pl.MGalecki10.Library.io.file.FileManager;
 import pl.MGalecki10.Library.io.file.FileManagerBuilder;
-import pl.MGalecki10.Library.model.*;
-import pl.MGalecki10.Library.model.comparator.AlphabeticalComparator;
+import pl.MGalecki10.Library.model.Book;
+import pl.MGalecki10.Library.model.Library;
+import pl.MGalecki10.Library.model.LibraryUser;
+import pl.MGalecki10.Library.model.Magazine;
 
-import java.util.Arrays;
 import java.util.InputMismatchException;
 
 public class LibraryControl {
@@ -145,9 +146,7 @@ public class LibraryControl {
     }
 
     private void printBooks() {
-        Publication[] publications = library.getPublications();
-        Arrays.sort(publications, new AlphabeticalComparator());
-        printer.printBooks(publications);
+        printer.printBooks(library.getPublications().values());
     }
 
     private void addMagazine() {
@@ -162,14 +161,7 @@ public class LibraryControl {
     }
 
     private void printMagazines() {
-        Publication[] publications = getPublications();
-        printer.printMagazines(publications);
-    }
-
-    private Publication[] getPublications() {
-        Publication[] publications = library.getPublications();
-        Arrays.sort(publications, new AlphabeticalComparator());
-        return publications;
+        printer.printMagazines(library.getPublications().values());
     }
 
     private void exit() {
