@@ -12,7 +12,9 @@ import pl.MGalecki10.Library.model.Book;
 import pl.MGalecki10.Library.model.Library;
 import pl.MGalecki10.Library.model.Magazine;
 import pl.MGalecki10.Library.model.Publication;
+import pl.MGalecki10.Library.model.comparator.AlphabeticalComparator;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 public class LibraryControl {
@@ -131,6 +133,7 @@ public class LibraryControl {
 
     private void printBooks() {
         Publication[] publications = library.getPublications();
+        Arrays.sort(publications, new AlphabeticalComparator());
         printer.printBooks(publications);
     }
 
@@ -147,6 +150,7 @@ public class LibraryControl {
 
     private void printMagazines() {
         Publication[] publications = library.getPublications();
+        Arrays.sort(publications, new AlphabeticalComparator());
         printer.printMagazines(publications);
     }
 
