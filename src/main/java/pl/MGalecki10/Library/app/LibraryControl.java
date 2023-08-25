@@ -1,17 +1,11 @@
 package pl.MGalecki10.Library.app;
 
-import pl.MGalecki10.Library.exception.DataExportException;
-import pl.MGalecki10.Library.exception.DataImportException;
-import pl.MGalecki10.Library.exception.InvalidDataException;
-import pl.MGalecki10.Library.exception.NoSuchOptionException;
+import pl.MGalecki10.Library.exception.*;
 import pl.MGalecki10.Library.io.ConsolePrinter;
 import pl.MGalecki10.Library.io.DataReader;
 import pl.MGalecki10.Library.io.file.FileManager;
 import pl.MGalecki10.Library.io.file.FileManagerBuilder;
-import pl.MGalecki10.Library.model.Book;
-import pl.MGalecki10.Library.model.Library;
-import pl.MGalecki10.Library.model.Magazine;
-import pl.MGalecki10.Library.model.Publication;
+import pl.MGalecki10.Library.model.*;
 import pl.MGalecki10.Library.model.comparator.AlphabeticalComparator;
 
 import java.util.Arrays;
@@ -74,6 +68,19 @@ public class LibraryControl {
                     printer.printLine("Nie ma takiej opcji, wprowadź ponownie: ");
             }
         } while (option != Option.EXIT);
+    }
+
+    private void addUser() {
+        try {
+            LibraryUser libraryUser = dataReader.createLibraryUser();
+            library.addUser(libraryUser);
+        } catch (UserAlreadyExistsException e) {
+            printer.printLine(e.getMessage());
+        }
+    }
+
+    private void printUsers() {
+        printer.printUsers(library.getUsers().values());
     }
 
     private void deleteBook() {
