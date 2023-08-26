@@ -4,7 +4,7 @@ import pl.MGalecki10.Library.model.Publication;
 
 import java.util.Comparator;
 
-public class AlphabeticalComparator implements Comparator<Publication> {
+public class AlphabeticalTitleComparator implements Comparator<Publication> {
     @Override
     public int compare(Publication p1, Publication p2) {
         if (p1 == null && p2 == null) {
