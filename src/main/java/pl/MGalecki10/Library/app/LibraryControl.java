@@ -5,10 +5,7 @@ import pl.MGalecki10.Library.io.ConsolePrinter;
 import pl.MGalecki10.Library.io.DataReader;
 import pl.MGalecki10.Library.io.file.FileManager;
 import pl.MGalecki10.Library.io.file.FileManagerBuilder;
-import pl.MGalecki10.Library.model.Book;
-import pl.MGalecki10.Library.model.Library;
-import pl.MGalecki10.Library.model.LibraryUser;
-import pl.MGalecki10.Library.model.Magazine;
+import pl.MGalecki10.Library.model.*;
 import pl.MGalecki10.Library.model.comparator.AlphabeticalTitleComparator;
 
 import java.util.Comparator;
@@ -128,11 +125,19 @@ public class LibraryControl {
     }
 
     private void printBooks() {
-        printer.printBooks(library.getSortedPublications(new AlphabeticalTitleComparator()));
+        printer.printBooks(library.getSortedPublications(
+                getPublicationComparator()
+        ));
     }
 
     private void printMagazines() {
-        printer.printMagazines(library.getSortedPublications(new AlphabeticalTitleComparator()));
+        printer.printMagazines(library.getSortedPublications(
+                getPublicationComparator()
+        ));
+    }
+
+    private static Comparator<Publication> getPublicationComparator() {
+        return (p1, p2) -> p1.getTitle().compareToIgnoreCase(p2.getTitle());
     }
 
     private void printUsers() {
