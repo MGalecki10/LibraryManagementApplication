@@ -136,12 +136,9 @@ public class LibraryControl {
     }
 
     private void printUsers() {
-        printer.printUsers(library.getSortedUsers(new Comparator<LibraryUser>() {
-            @Override
-            public int compare(LibraryUser p1, LibraryUser p2) {
-                return p1.getLastName().compareToIgnoreCase(p2.getLastName());
-            }
-        }));
+        printer.printUsers(library.getSortedUsers(
+                (p1, p2) -> p1.getLastName().compareToIgnoreCase(p2.getLastName())
+        ));
     }
 
     private void deleteBook() {
