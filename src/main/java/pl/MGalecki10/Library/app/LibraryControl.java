@@ -137,13 +137,13 @@ public class LibraryControl {
     }
 
     private static Comparator<Publication> getPublicationComparator() {
-        return (p1, p2) -> p1.getTitle().compareToIgnoreCase(p2.getTitle());
+//        return (p1, p2) -> p1.getTitle().compareToIgnoreCase(p2.getTitle());
+        return Comparator.comparing(Publication::getTitle, String.CASE_INSENSITIVE_ORDER);
     }
 
     private void printUsers() {
         printer.printUsers(library.getSortedUsers(
-                (p1, p2) -> p1.getLastName().compareToIgnoreCase(p2.getLastName())
-        ));
+             Comparator.comparing(User::getLastName ,String.CASE_INSENSITIVE_ORDER)));
     }
 
     private void deleteBook() {
