@@ -11,27 +11,30 @@ import java.util.Collections;
 public class ConsolePrinter {
 
     public void printBooks(Collection<Publication> publications) {
-        int counter = 0;
+        int countBooks = 0;
         for (Publication publication : publications) {
             if(publication instanceof Book) {
                 printLine(publication.toString());
-                counter++;
+                countBooks++;
             }
         }
-        if (counter == 0)
+        if (countBooks == 0) {
             printLine("Brak książek w bibliotece");
+        }
+
     }
 
     public void printMagazines(Collection<Publication> publications) {
-        int counter = 0;
+        int countMagazines = 0;
         for (Publication publication : publications) {
             if(publication instanceof Magazine) {
                 printLine(publication.toString());
-                counter++;
+                countMagazines++;
             }
         }
-        if (counter == 0)
+        if (countMagazines == 0) {
             printLine("Brak magazynów w bibliotece");
+        }
     }
 
     public void printUsers(Collection<LibraryUser> users) {
