@@ -6,7 +6,7 @@ import pl.MGalecki10.Library.io.DataReader;
 import pl.MGalecki10.Library.io.file.FileManager;
 import pl.MGalecki10.Library.io.file.FileManagerBuilder;
 import pl.MGalecki10.Library.model.*;
-import pl.MGalecki10.Library.model.comparator.AlphabeticalTitleComparator;
+
 
 import java.util.Comparator;
 import java.util.InputMismatchException;
@@ -69,6 +69,7 @@ public class LibraryControl {
             }
         } while (option != Option.EXIT);
     }
+
 
     private Option getOption() {
         boolean optionOk = false;
@@ -143,7 +144,7 @@ public class LibraryControl {
 
     private void printUsers() {
         printer.printUsers(library.getSortedUsers(
-             Comparator.comparing(User::getLastName ,String.CASE_INSENSITIVE_ORDER)));
+                Comparator.comparing(User::getLastName, String.CASE_INSENSITIVE_ORDER)));
     }
 
     private void deleteBook() {
@@ -190,11 +191,11 @@ public class LibraryControl {
         ADD_MAGAZINE(2, "Dodanie magazynu/gazety"),
         PRINT_BOOKS(3, "Wyświetlenie dostępnych książek"),
         PRINT_MAGAZINES(4, "WYświetlenie dostępnych magazynów/gazet"),
-        DELETE_BOOK(5,"Usuń książkę"),
-        DELETE_MAGAZINE(6,"Usuń magazyn"),
-        ADD_USER(7,"Dodaj czytelnika"),
-        PRINT_USER(8, "Wyświetl czytelnika");
-
+        DELETE_BOOK(5, "Usuń książkę"),
+        DELETE_MAGAZINE(6, "Usuń magazyn"),
+        ADD_USER(7, "Dodaj czytelnika"),
+        PRINT_USER(8, "Wyświetl czytelnika"),
+        FIND_BOOK(9, "Wyszukaj książkę");
 
 
         private int value;
