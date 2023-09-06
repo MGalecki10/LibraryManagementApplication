@@ -20,6 +20,11 @@ public class Library implements Serializable {
         return list;
     }
 
+    public Publication findPublicationByTitle(String title) {
+        return publications.get(title);
+    }
+
+
     public Map<String, LibraryUser> getUsers() {
         return users;
     }
