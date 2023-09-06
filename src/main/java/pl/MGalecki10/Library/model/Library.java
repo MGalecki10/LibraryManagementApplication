@@ -20,8 +20,8 @@ public class Library implements Serializable {
         return list;
     }
 
-    public Publication findPublicationByTitle(String title) {
-        return publications.get(title);
+    public Optional<Publication> findPublicationByTitle(String title) {
+        return Optional.ofNullable(publications.get(title));
     }
 
 
